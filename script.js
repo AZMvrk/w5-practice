@@ -4,6 +4,13 @@ const rootElement = document.querySelector("#root")
 console.log(rootElement)
 
 
+const fetchUrl = async (url) => {
+  const response = await fetch(url)
+  const data = await response.json()
+  return data
+
+}
+
 const countryComponent = (country) => `
   <div class="country">
     <h2>country name: ${country.name.common}</h2>
@@ -11,12 +18,12 @@ const countryComponent = (country) => `
   </div>
 `
 
-async function init() { // felkészítjük a js-t, hogy a függvényben lesznek aszinkron kódok
-    const response = await fetch("https://restcountries.com/v3.1/all") // megvárjuk a fetch válaszát (promise helyett)
-    const data = await response.json() // megvárjuk, hogy a response megjöjjön (promise helyett) -> itt lesz elérhető az adatunk
+async function init() { 
+    const data = await fetchUrl("https://restcountries.com/v3.1/all")
     console.log(data)
 
-    data.forEach(country => rootElement.insertAdjacentHTML("beforeend", countryComponent(country)))
+   data.forEach(country => rootElement.insertAdjacentHTML("beforeend", countryComponent(country)))
 }
 
 init()
+//window.addEventListener("load")
