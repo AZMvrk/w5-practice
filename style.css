@@ -1,5 +1,5 @@
-html{
-  background-color: rgb(193, 192, 192);
+html {
+  background-color: rgb(186, 217, 178);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -11,7 +11,7 @@ div#root {
   justify-content: center;
 }
 
-div.country{
+div.country {
   border: 2px solid black;
   text-align: center;
   width: fit-content;
@@ -21,12 +21,43 @@ div.country{
   align-items: center;
   gap: 20px;
 
+  color: black;
+
   padding: 20px;
 
-
+  transition: all 0.5s ease;
 }
 
-h2, h3,{
+div.country.clicked {
+  transform: rotate(180deg);
+}
+
+div:nth-child(5n - 4).country.clicked {
+  border: 2px solid white;
+  color: white;
+}
+
+div:nth-child(5n - 3).country.clicked {
+  border: 2px solid greenyellow;
+  color: greenyellow;
+}
+
+div:nth-child(5n - 2).country.clicked {
+  border: 2px solid red;
+  color: red;
+}
+
+div:nth-child(5n - 1).country.clicked {
+  border: 2px solid blue;
+  color: blue;
+}
+
+div:nth-child(5n).country.clicked {
+  border: 2px solid yellow;
+  color: yellow;
+}
+
+h2, h3 {
   width: fit-content;
   margin: 0;
 }
